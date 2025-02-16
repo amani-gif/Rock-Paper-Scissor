@@ -20,7 +20,6 @@
             } else 
                 {return "Scissors";}
         }
-        console.log(computerChoice())
         
         function getHumanChoice(){
             let  humanChoice=prompt("Enter you choice:")
@@ -30,7 +29,8 @@
         let computerScore=0;
         
         function playRound(humanChoice, computerChoice){
-            
+            getHumanChoice()
+            console.log(computerChoice())
             if (humanChoice.toLower()==="rock" && computerChoice==="Scissors" || humanChoice.toLower()==="paper" && computerChoice==="Rock" || humanChoice.toLower()==="scissors"&&computerChoice==="Paper"){
                 console.log("You won this round!!!!")
                 humanScore+=1
@@ -42,10 +42,15 @@
             }
         }
         
-        function playGame(){
-            for(i=0; i<5; i++){
-
+        function playGame(humanScore, computerScore, humanChoice, computerChoice){
+            for(i=0; i<5 ; i++){
+                playRound(humanChoice, computerChoice)
             }
+            if (humanScore>computerScore){
+                console.log("You wonnnn!!!")
+            } else if(humanScore > computerScore){
+                console.log("You lost.")
+            } else { console.log("You got a tie")}
         }
     </script>
 
