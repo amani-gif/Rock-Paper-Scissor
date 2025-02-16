@@ -23,12 +23,14 @@
         console.log(computerChoice())
         
         function getHumanChoice(){
-            const  humanChoice=prompt("Enter you choice:")
+            let  humanChoice=prompt("Enter you choice:")
         }
-        getHumanChoice()
+        
         let humanScore=0;
         let computerScore=0;
+        
         function playRound(humanChoice, computerChoice){
+            
             if (humanChoice.toLower()==="rock" && computerChoice==="Scissors" || humanChoice.toLower()==="paper" && computerChoice==="Rock" || humanChoice.toLower()==="scissors"&&computerChoice==="Paper"){
                 console.log("You won this round!!!!")
                 humanScore+=1
@@ -40,6 +42,11 @@
             }
         }
         
+        function playGame(){
+            for(i=0; i<5; i++){
+
+            }
+        }
     </script>
 
 </body>
