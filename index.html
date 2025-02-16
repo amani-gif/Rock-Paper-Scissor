@@ -28,6 +28,16 @@
         getHumanChoice()
         let humanScore=0;
         let computerScore=0;
+        function playRound(/humanChoice/i, computerChoice){
+            if (computerScore > humanScore){
+                console.log("You lost this round!")
+            } else if (humanScore ===computerChoice){
+                console.log("It's a tie!")
+            } else {
+                console.log("You win this round!!!")
+            }
+        }
+        
     </script>
 
 </body>
