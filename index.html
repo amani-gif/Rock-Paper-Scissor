@@ -10,9 +10,9 @@
     <script>
         function computerChoice() {
             let x=Math.random()
-            if x===0 {return "Rock"
+            if (0<=x<1/3) {return "Rock"
             
-            } else if x<=0.5 {return "Paper"
+            } else if (1/3<=x<2/3) {return "Paper"
 
             } else {return "Scissor"}
         }
