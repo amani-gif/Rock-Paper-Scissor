@@ -18,8 +18,32 @@
                 return "Scissors";
             }
         }
- //-----------------------------------------------------------------------------------------------
- 
+//-----------------------------------------------------------------------------------------------
+        function getHumanChoice(){
+            let choice=prompt("Rock Paper or Scissors?:");
+            if ( choice.toLowerCase()!=="rock" 
+            || choice.toLowerCase()!=="paper"
+            || choice.toLowerCase()!=="scissors"){
+                let choice=prompt("Rock Paper or Scissors?:");
+            } 
+            return choice;
+        }
+
+//---------------------------------------------------------------------------------------------------------
+      
+        function playRound(humanCh,computerCh){
+            if (humanCh.toLowerCase()==="rock" && computerCh==="scissors" 
+            || humanCh.toLowerCase()==="paper" && computerCh==="rock"
+            || humanCh.toLowerCase()==="scissors" && computerCh==="paper"){
+                return "You win"
+            } else if (humanCh!==computerCh){
+                return "You lose"
+            } else {
+                return "Tie"
+            }
+        }
+
+//-----------------------------------------------------------------------------------------------------------
     </script>
 
 </body>
