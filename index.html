@@ -44,6 +44,34 @@
         }
 
 //-----------------------------------------------------------------------------------------------------------
+
+        function playGame(){
+            for (let i=0 ; i<5 ; i++){
+                const humanSelection=getHumanChoice();
+                const computerSelection=getComputerChoice();
+                let humanScore=0;
+                let computerScore=0;
+                let res = playRound(humanSelection,computerSelection)
+                if (res==="You win"){
+                    humanScore++
+                    console.log(`You won this round, ${humanSelection} beats ${computerSelection}`)
+                } else if (res==="You lose"){
+                    computerScore++
+                    console.log(`You lost this round, ${computerSelection} beats ${humanSelection}`)
+                } else{
+                    console.log("This round is a tie.")
+            }
+            console.log(`Your score is: ${humanScore}`)
+            console.log(`Computer's score is: ${computerScore}`)
+            if (humanScore>computerScore){
+                console.log("You won the game!")
+            } else if (humanScore<computerScore){
+                console.log("You lost the game!")
+            } else {
+                console.log("It's a tie!")
+            }
+            }
+        }
     </script>
 
 </body>
