@@ -8,7 +8,7 @@
 <body>
     
     <script>
-        function getcomputerChoice() {
+        function getComputerChoice() {
             let x=Math.random()
             if (x <1/3) {
                 return "Rock";
@@ -19,49 +19,7 @@
             }
         }
  //-----------------------------------------------------------------------------------------------
-        function getHumanChoice(){
-            let  choice=prompt("Enter you choice:")
-            return choice
-        }
-//-------------------------------------------------------------------------------------------------
-        const humanSelection=getHumanChoice()
-        const computerSelection=getcomputerChoice()
-//--------------------------------------------------------------------------------------------------
-        function playGame(){
-            let humanScore=0;
-            let computerScore=0;
- //-----------------------------       
-            function playRound(humanChoice, computerChoice) {
-                if ((humanChoice.toLowerCase()==="rock" && computerChoice==="Scissors") || (humanChoice.toLowerCase()==="paper" && computerChoice==="Rock") || (humanChoice.toLowerCase()==="scissors"&&computerChoice==="Paper")){
-                    console.log("You won this round!!!!")
-                    humanScore++
-                } else if (humanChoice!=computerChoice){
-                    console.log("You lost.")
-                    computerScore++
-                } else {
-                    console.log("it's a tie.")
-                }
-                }
-            
-            for(i=0; i<5 ; i++){
-                getHumanChoice()
-                playRound(humanSelection, computerSelection)
-                console.log(humanSelection)
-                console.log(computerSelection)
-                console.log(humanScore)
-                console.log(computerScore)
-            }
-        if (humanScore>computerScore){
-            console.log("You wonnnn!!!")
-        } else if(humanScore > computerScore){
-            console.log("You lost.")
-        } else {
-            console.log("You got a tie")
-            }
-    }
-    
-//------------------------------------------------------------------------    
-        playGame()
+ 
     </script>
 
 </body>
