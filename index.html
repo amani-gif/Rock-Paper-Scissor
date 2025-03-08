@@ -23,17 +23,17 @@
         
         rockbtn.addEventListener('click', ()=>{
             const computerSelection=getComputerChoice();
-            const playerSelection=getHumanChoice();
+            const humanSelection="rock";
             playRound(humanSelection, computerSelection);
         });
         paperbtn.addEventListener('click', ()=>{
             const computerSelection=getComputerChoice();
-            const playerSelection=getHumanChoice();
+            const humanSelection="paper";
             playRound(humanSelection, computerSelection);
         });
         scissorsbtn.addEventListener('click', ()=>{
             const computerSelection=getComputerChoice();
-            const playerSelection=getHumanChoice();
+            const humanSelection="scissors";
             playRound(humanSelection, computerSelection);
         });
 
@@ -49,21 +49,21 @@
             }
         }
         //-----------------------------------------------------------------------------------------------
-        function getHumanChoice() {
-            let valid = false
-            let choice;
-            while (valid === false) {
-                choice = prompt("Rock Paper or Scissors?:");
-                if (choice === null) {
-                    continue;
-                } else if (choice.toLowerCase() === "rock"
-                    || choice.toLowerCase() === "paper"
-                    || choice.toLowerCase() === "scissors") {
-                    valid = true;
-                }
-            }
-            return choice;
-        }
+        // function getHumanChoice() {
+        //     let valid = false
+        //     let choice;
+        //     while (valid === false) {
+        //         choice = prompt("Rock Paper or Scissors?:");
+        //         if (choice === null) {
+        //             continue;
+        //         } else if (choice.toLowerCase() === "rock"
+        //             || choice.toLowerCase() === "paper"
+        //             || choice.toLowerCase() === "scissors") {
+        //             valid = true;
+        //         }
+        //     }
+        //     return choice;
+        // }
 
         //---------------------------------------------------------------------------------------------------------
 
@@ -86,6 +86,7 @@
         function playGame() {
             let humanScore=0;
             let computerScore=0;
+            let res=playRound(humanSelection, computerSelection);
             //for (let i=0 ; i<5 ; i++){
             // const computerSelection=getComputerChoice();
             //const humanSelection=getHumanChoice();
@@ -107,15 +108,25 @@
             const compScoreDisp=document.createElement('p');
             outcomeDiv.appendChild(humanScoreDisp);
             outcomeDiv.appendChild(compScoreDisp);
-            humanScoreDisp.innerText=`Your score is: ${humanScore} `;
-            compScoreDisp.innerText=`Computer's score is: ${computerScore}`;
-            if (humanScore > computerScore) {
+            while (humanScore<=6 && computerScore<=6){
+                if (res==="You win"){
+                    humanScore++;
+                    humanScoreDisp.innerText=`Your score is: ${humanScore} `;
+                    compScoreDisp.innerText=`Computer's score is: ${computerScore}`;
+                } else if (res==="You lose"){
+                    computerScore++;
+                    humanScoreDisp.innerText=`Your score is: ${humanScore} `;
+                    compScoreDisp.innerText=`Computer's score is: ${computerScore}`;
+                } else {
+                    humanScoreDisp.innerText=`Your score is: ${humanScore} `;
+                    compScoreDisp.innerText=`Computer's score is: ${computerScore}`;
+                }
+            if (humanScore ===5) {
                 outcomeDiv.innerText=`You won the game!`;
-            } else if (humanScore < computerScore) {
+            } else if (computerScore===5) {
                 outcomeDiv.innerText=`You lost the game!`;
-            } else {
-                outcomeDiv.innerText=`It's a tie!`;
             }
+            }  
         }
 
         //---------------------------------------------------------------------------------------------------------------
