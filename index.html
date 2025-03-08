@@ -84,8 +84,8 @@
         //-----------------------------------------------------------------------------------------------------------
 
         function playGame() {
-            //let humanScore=0;
-            //let computerScore=0;
+            let humanScore=0;
+            let computerScore=0;
             //for (let i=0 ; i<5 ; i++){
             // const computerSelection=getComputerChoice();
             //const humanSelection=getHumanChoice();
@@ -102,22 +102,25 @@
             //  console.log("This round is a tie.")
             //}
             //}
+
             const humanScoreDisp=document.createElement('p');
             const compScoreDisp=document.createElement('p');
+            outcomeDiv.appendChild(humanScoreDisp);
+            outcomeDiv.appendChild(compScoreDisp);
             humanScoreDisp.innerText=`Your score is: ${humanScore} `;
             compScoreDisp.innerText=`Computer's score is: ${computerScore}`;
             if (humanScore > computerScore) {
-                console.log("You won the game!")
+                outcomeDiv.innerText=`You won the game!`;
             } else if (humanScore < computerScore) {
-                console.log("You lost the game!")
+                outcomeDiv.innerText=`You lost the game!`;
             } else {
-                console.log("It's a tie!")
+                outcomeDiv.innerText=`It's a tie!`;
             }
         }
 
         //---------------------------------------------------------------------------------------------------------------
 
-        //playGame();
+        playGame();
 
     </script>
 
