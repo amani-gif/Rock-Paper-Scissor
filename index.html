@@ -50,6 +50,11 @@
         const rockbtn = document.querySelector('.rock');
         const paperbtn = document.querySelector('.paper');
         const scissorsbtn = document.querySelector('.scissors');
+        const outcomeDiv= documentquerySelector('.outcome');
+        const finalWinner=document.createElement('div');
+        finalWinner.innerText='';
+
+
 
 
         function getHumanChoice(){
@@ -70,63 +75,36 @@
  
 
 
-        function playGame(){
-            let humanScore=0;
-            let computerScore=0;
-            winnerDisplay="";
-            while (humanScore<6 && computerScore<6){
-                let res='';
-                const humanSelection=getHumanChoice();
-                const computerSelection=getComputerChoice();
-                buttons.forEach((button) => {
-                    button.addEventListener('click', (humanSelection, computerSelection)=>{
-                        res=playRound(humanSelection, computerSelection);
-                    })
-                });
-                if (res='winner'){
-                    humanScore++;
-                    winnerDisplay=`You win! ${humanSelection} beats ${computerSelection}.`
-                } else if (res='loser'){
-                    computerScore++
-                    winnerDisplay=`You lose! ${computerSelection} beats ${humanSelection}.`
-                } else {
-                    winnerDisplay=`It's a tie! You both chose ${computerSelection}.`
-                }
-            }
-            return winnerDisplay
-        }
+
         
 
 //------------------------------------------------------------------------------------------------------------------
 
-        // function playGame() {
-        //     let humanScore=0;
-        //     let computerScore=0;
-        //     while (humanScore<=5 && computerScore<=5){
-        //         if (res==="You win"){
-        //             humanScore++;
-        //             humanScoreDisp.innerText=`Your score is: ${humanScore} `;
-        //             compScoreDisp.innerText=`Computer's score is: ${computerScore}`;
-        //         } else if (res==="You lose"){
-        //             computerScore++;
-        //             humanScoreDisp.innerText=`Your score is: ${humanScore} `;
-        //             compScoreDisp.innerText=`Computer's score is: ${computerScore}`;
-        //         } else {
-        //             humanScoreDisp.innerText=`Your score is: ${humanScore} `;
-        //             compScoreDisp.innerText=`Computer's score is: ${computerScore}`;
-        //         }
-        //     if (humanScore ===5) {
-        //         outcomeDiv.innerText=`You won the game!`;
-        //     } else if (computerScore===5) {
-        //         outcomeDiv.innerText=`You lost the game!`;
-        //     }
-        //     }  
-        // }
+       function updateScore(humanSelection,computerSelection,result){
+        if (result==='winner'){
+            humanScore++;
+            outcomeDiv.innerText=`You win!  ${humanSelection} beats ${computerSelection}.<br> 
+            humanScore= ${humanScore} <br>
+            computerScore= ${computerScore}`;
+        } else if (result==='loser'){
+            computerScore++;
+            outcomeDiv.innerText=`You lose! ${computerSelection} beats ${humanSelection}. <br> 
+            humanScore= ${humanScore} <br>
+            computerScore= ${computerScore}`;
+        } else {
+            outcomeDiv.innerText = `It's a tie! You both chose ${computerSelection}.<br> 
+            humanScore= ${humanScore} <br>
+            computerScore= ${computerScore}`;
+        }
+        if (humanScore===5){
+            
+        }
+       }
+    
 
 //---------------------------------------------------------------------------------------------------------------
 
-        playGame();
-        console.log(playGame())
+
 
     </script>
 
