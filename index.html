@@ -76,14 +76,25 @@
         function playGame(){
             let humanScore=0;
             let computerScore=0;
-            let res="";
+            winnerDisplay="";
             while (humanScore<6 || computerScore<6){
+                const res='';
                 const humanSelection=getHumanChoice();
                 const computerSelection=getComputerChoice();
-                buttons.addEventListener('click', ()=>{
-                    playRound(humanSelection, computerSelection)
+                buttons.forEach((button) => {
+                    button.addEventListener('click', (humanSelection, computerSelection)=>{
+                        res=playRound;
+                    })
                 });
-
+                if (res='winner'){
+                    humanScore++;
+                    winnerDisplay=`You win! ${humanSelection} beats ${computerSelection}.`
+                } else if (res='loser'){
+                    computerScore++
+                    winnerDisplay=`You lose! ${computerSelection} beats ${humanSelection}.`
+                } else {
+                    winnerDisplay=`It's a tie! You both chose ${computerSelection}.`
+                }
                     
 
             }
