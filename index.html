@@ -55,17 +55,17 @@
             if (result === 'winner') {
                 humanScore++;
                 outcomeDiv.innerText = `You win!  ${humanSelection} beats ${computerSelection}. 
-            humanScore= ${humanScore} 
-            computerScore= ${computerScore}`;
+            Human Score= ${humanScore} 
+            Computer Score= ${computerScore}`;
             } else if (result === 'loser') {
                 computerScore++;
                 outcomeDiv.innerText = `You lose! ${computerSelection} beats ${humanSelection}. 
-            humanScore= ${humanScore} 
-            computerScore= ${computerScore}`;
+            Human Score= ${humanScore} 
+            Computer Score= ${computerScore}`;
             } else {
                 outcomeDiv.innerText = `It's a tie! You both chose ${computerSelection}.
-            humanScore= ${humanScore} 
-            computerScore= ${computerScore}`;
+            Human Score= ${humanScore} 
+            Computer Score= ${computerScore}`;
             }
             if (humanScore === 5) {
                 finalWinner.innerText = 'You won the game!!!'
