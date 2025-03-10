@@ -36,18 +36,17 @@
             if (humanCh.toLowerCase() === "rock" && computerCh === "Scissors"
                 || humanCh.toLowerCase() === "paper" && computerCh === "Rock"
                 || humanCh.toLowerCase() === "scissors" && computerCh === "Paper") {
-                return "You win"
+                return "winner"
             } else if (humanCh.toLowerCase() === "rock" && computerCh === "Paper"
                 || humanCh.toLowerCase() === "paper" && computerCh === "Scissors"
                 || humanCh.toLowerCase() === "scissors" && computerCh === "Rock") {
-                return "You lose"
+                return "loser"
             } else {
-                return "Tie"
+                return "tie"
             }
         }
 
-//----------------------------------------------------------------------------------------------------------------- 
-
+        const buttons = document.querySelectorAll("button");
         const rockbtn = document.querySelector('.rock');
         const paperbtn = document.querySelector('.paper');
         const scissorsbtn = document.querySelector('.scissors');
@@ -70,6 +69,24 @@
             const humanSelection="scissors";
             });
             return humanSelection;
+        }
+ 
+
+
+        function playGame(){
+            let humanScore=0;
+            let computerScore=0;
+            let res="";
+            while (humanScore<6 || computerScore<6){
+                const humanSelection=getHumanChoice();
+                const computerSelection=getComputerChoice();
+                buttons.addEventListener('click', ()=>{
+                    playRound(humanSelection, computerSelection)
+                });
+
+                    
+
+            }
         }
         
 
