@@ -21,10 +21,10 @@
         const rockbtn = document.querySelector('.rock');
         const paperbtn = document.querySelector('.paper');
         const scissorsbtn = document.querySelector('.scissors');
-        const outcomeDiv = documentquerySelector('.outcome');
+        const outcomeDiv = document.querySelector('.outcome');
         const finalWinner = document.createElement('div');
         finalWinner.innerText = '';
-        outcomeDiv.appendChild(finalWinner);
+
 
         function getComputerChoice() {
             let x = Math.random()
@@ -54,17 +54,17 @@
         function updateScore(humanSelection, computerSelection, result) {
             if (result === 'winner') {
                 humanScore++;
-                outcomeDiv.innerText = `You win!  ${humanSelection} beats ${computerSelection}.<br> 
-            humanScore= ${humanScore} <br>
+                outcomeDiv.innerText = `You win!  ${humanSelection} beats ${computerSelection}. 
+            humanScore= ${humanScore} 
             computerScore= ${computerScore}`;
             } else if (result === 'loser') {
                 computerScore++;
-                outcomeDiv.innerText = `You lose! ${computerSelection} beats ${humanSelection}. <br> 
-            humanScore= ${humanScore} <br>
+                outcomeDiv.innerText = `You lose! ${computerSelection} beats ${humanSelection}. 
+            humanScore= ${humanScore} 
             computerScore= ${computerScore}`;
             } else {
-                outcomeDiv.innerText = `It's a tie! You both chose ${computerSelection}.<br> 
-            humanScore= ${humanScore} <br>
+                outcomeDiv.innerText = `It's a tie! You both chose ${computerSelection}.
+            humanScore= ${humanScore} 
             computerScore= ${computerScore}`;
             }
             if (humanScore === 5) {
@@ -77,13 +77,15 @@
         }
 
         function disableButtons() {
-            buttons.forEach(button => button.disabled)
+            buttons.forEach(button => button.disabled=true)
         };
-
+        
+        outcomeDiv.appendChild(finalWinner);
         //---------------------------------------------------------------------------------------------------------------
-
+        let humanScore=0;
+        let computerScore=0;
         buttons.forEach(button => {
-            button.addEventListener('click', (){
+            button.addEventListener('click', ()=>{
                 let humanSelection=button.className;
                 let computerSelection=getComputerChoice();
                 let result= playRound(humanSelection, computerSelection);
