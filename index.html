@@ -74,13 +74,14 @@
                 finalWinner.innerText = 'You lost :,(. Try again to test you luck!'
                 disableButtons();
             }
+            outcomeDiv.appendChild(finalWinner);
         }
 
         function disableButtons() {
             buttons.forEach(button => button.disabled=true)
         };
         
-        outcomeDiv.appendChild(finalWinner);
+
         //---------------------------------------------------------------------------------------------------------------
         let humanScore=0;
         let computerScore=0;
