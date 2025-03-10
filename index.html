@@ -50,25 +50,22 @@
         const rockbtn = document.querySelector('.rock');
         const paperbtn = document.querySelector('.paper');
         const scissorsbtn = document.querySelector('.scissors');
-        const outcomeDiv=document.querySelector('.outcome');
-        const humanScoreDisp=document.createElement('p');
-        const compScoreDisp=document.createElement('p');
-        humanScoreDisp.textContent="";
-        compScoreDisp.textContent="";
-        outcomeDiv.appendChild(humanScoreDisp);
-        outcomeDiv.appendChild(compScoreDisp);
+
 
         function getHumanChoice(){
             rockbtn.addEventListener('click', ()=>{
             const humanSelection="rock";
+            return humanSelection;
             });
             paperbtn.addEventListener('click', ()=>{
             const humanSelection="paper";
+            return humanSelection;
             });
             scissorsbtn.addEventListener('click', ()=>{
             const humanSelection="scissors";
-            });
             return humanSelection;
+            });
+            
         }
  
 
@@ -77,13 +74,13 @@
             let humanScore=0;
             let computerScore=0;
             winnerDisplay="";
-            while (humanScore<6 || computerScore<6){
-                const res='';
+            while (humanScore<6 && computerScore<6){
+                let res='';
                 const humanSelection=getHumanChoice();
                 const computerSelection=getComputerChoice();
                 buttons.forEach((button) => {
                     button.addEventListener('click', (humanSelection, computerSelection)=>{
-                        res=playRound;
+                        res=playRound(humanSelection, computerSelection);
                     })
                 });
                 if (res='winner'){
@@ -95,41 +92,41 @@
                 } else {
                     winnerDisplay=`It's a tie! You both chose ${computerSelection}.`
                 }
-                    
-
             }
+            return winnerDisplay
         }
         
 
 //------------------------------------------------------------------------------------------------------------------
 
-        function playGame() {
-            let humanScore=0;
-            let computerScore=0;
-            while (humanScore<=5 && computerScore<=5){
-                if (res==="You win"){
-                    humanScore++;
-                    humanScoreDisp.innerText=`Your score is: ${humanScore} `;
-                    compScoreDisp.innerText=`Computer's score is: ${computerScore}`;
-                } else if (res==="You lose"){
-                    computerScore++;
-                    humanScoreDisp.innerText=`Your score is: ${humanScore} `;
-                    compScoreDisp.innerText=`Computer's score is: ${computerScore}`;
-                } else {
-                    humanScoreDisp.innerText=`Your score is: ${humanScore} `;
-                    compScoreDisp.innerText=`Computer's score is: ${computerScore}`;
-                }
-            if (humanScore ===5) {
-                outcomeDiv.innerText=`You won the game!`;
-            } else if (computerScore===5) {
-                outcomeDiv.innerText=`You lost the game!`;
-            }
-            }  
-        }
+        // function playGame() {
+        //     let humanScore=0;
+        //     let computerScore=0;
+        //     while (humanScore<=5 && computerScore<=5){
+        //         if (res==="You win"){
+        //             humanScore++;
+        //             humanScoreDisp.innerText=`Your score is: ${humanScore} `;
+        //             compScoreDisp.innerText=`Computer's score is: ${computerScore}`;
+        //         } else if (res==="You lose"){
+        //             computerScore++;
+        //             humanScoreDisp.innerText=`Your score is: ${humanScore} `;
+        //             compScoreDisp.innerText=`Computer's score is: ${computerScore}`;
+        //         } else {
+        //             humanScoreDisp.innerText=`Your score is: ${humanScore} `;
+        //             compScoreDisp.innerText=`Computer's score is: ${computerScore}`;
+        //         }
+        //     if (humanScore ===5) {
+        //         outcomeDiv.innerText=`You won the game!`;
+        //     } else if (computerScore===5) {
+        //         outcomeDiv.innerText=`You lost the game!`;
+        //     }
+        //     }  
+        // }
 
 //---------------------------------------------------------------------------------------------------------------
 
         playGame();
+        console.log(playGame())
 
     </script>
 
